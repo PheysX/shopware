@@ -441,7 +441,7 @@
             me._slideIndex = opts.startIndex;
 
             /**
-             * ID of the setTimeout that will be called if the
+             * ID of the setInterval that will be called if the
              * auto slide option is active.
              * Wil be used for removing / resetting the timer.
              *
@@ -1702,7 +1702,7 @@
 
             me.stopAutoSlide(me._slideInterval);
 
-            me._slideInterval = window.setTimeout($.proxy(me.slideNext, me), me.opts.autoSlideInterval);
+            me._slideInterval = window.setInterval($.proxy(me.slideNext, me), me.opts.autoSlideInterval);
 
             $.publish('plugin/swImageSlider/onStartAutoSlide', [ me, me._slideInterval ]);
         },
@@ -1716,7 +1716,7 @@
         stopAutoSlide: function () {
             var me = this;
 
-            window.clearTimeout(me._slideInterval);
+            window.clearInterval(me._slideInterval);
 
             $.publish('plugin/swImageSlider/onStopAutoSlide', [ me ]);
         },
